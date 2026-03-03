@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Plataforma Avançada de Quiz Educacional
 
-## Getting Started
+Uma aplicação web de avaliação técnica robusta, rápida e segura construída com Next.js (App Router), estruturada para proporcionar a melhor experiência tanto para alunos quanto para os professores em um ambiente focado.
 
-First, run the development server:
+## 🚀 Funcionalidades Principais
 
+- **Sistema de Fluxo Duplo:** Autenticação separada e rotas protegidas especificamente para o ambiente de Alunos (`/student`...) e para o Painel de Controle de Professores (`/teacher`...).
+- **Interface Baseada em Neurociência:** Design "Dark Mode" de alto contraste, elementos minimalistas focados em foco contínuo e pequenos estímulos dinâmicos/micro-interações (como confetes ao atingir a aprovação).
+- **Provas Automatizadas:** Alimentada pelo motor Fisher-Yates de randomização em duplo-nível (tanto as ordens das questões quanto a ordem das alternativas "A, B, C, D" são embaralhadas para cada sessão impedindo colas).
+- **HUD Integrado:** O aluno enxerga ativamente seu progresso (verde reluzente), suas seleções momentâneas de "radios" customizados, e botões de emergência caso precise pausar ou abandonar seu questionário na hora. 
+- **Painel do Professor com Relatórios Completos:** Cada prova é guardada integralmente permitindo revisar minuciosamente em um Dossiê Técnico a alternativa que o aluno apontou versus a alternativa do Gabarito Oficial (permitindo analisar a performance e falhas conceituais turma a turma). Inclui botão nativo para `Backup em CSV` (Baixar Planilha de Notas).
+- **Preparado para o Futuro e Serverless:** O fluxo de armazenamento no Backend está temporariamente "Mockado" na variável volátil `mockDB.ts` (funcionando 100% de ponta a ponta perfeitamente online e offline para testes), mas estruturalmente o projeto inteiro já tem mapeadas as portas API para conexão imediata com os clusters PostgreSQL do **Supabase**. (Scripts `.sql` já estão prontos na pasta base).
+
+## 🛠 Arquitetura e Tech Stack
+
+Este projeto é completamente modularizado para fácil controle:
+
+*   **Front-End & Framework Base:** React 19 + Next.js 16 (Turbopack, App Router).
+*   **Estilizações e Identidade Visual:** TailwindCSS Vanilla (`bg-[#171717]`, `emerald-500`, degradês customizados para um ambiente tech limpo e não-genérico).
+*   **Back-End API Routes:** Funções serveless contidas dentro da pasta `src/app/api/...` consumindo/escrevendo estados JSON puros.
+*   **Tipagem Forte:** TypeScript.
+*   **Animação:** `canvas-confetti`.
+
+## 📦 Como rodar este projeto em sua máquina:
+
+O escopo usa NodeJS, portanto instale as dependências:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Start no servidor local (com o Turbopack):
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Abra o seu navegador principal em **http://localhost:3000** e acesse a tela Base "Acessar Sistema".
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+### 👤 Credenciais de Teste
+Para navegar instantaneamente:
 
-To learn more about Next.js, take a look at the following resources:
+**Ambiente do Professor:**
+- **E-mail:** `professor@tfc.com`
+- **Senha:** `senha123`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Observação:** Os alunos costumam criar e utilizar a rota livre clicando no botão base "Cadastrar Conta" ou através do link `<local>/register`. A API interna simulará a criação deles.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔗 Sobre o Autor
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Desenvolvido e estilizado por notcostaip.
+* **Acesse para mais insights!** 👉 [notcostaip | Instagram](https://instagram.com/notcostaip)
